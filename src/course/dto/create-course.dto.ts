@@ -6,6 +6,9 @@ export class CreateCourseDto {
     name: string;
 
     @IsString()
+    creator: string;
+    
+    @IsString()
     description: string;
 
     @IsString()

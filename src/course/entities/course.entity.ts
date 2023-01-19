@@ -12,6 +12,9 @@ export class Course extends Model{
     name: string;
 
     @Column(DataType.STRING)
+    creator: string;
+
+    @Column(DataType.STRING)
     description: string;
 
     @Column(DataType.STRING)
