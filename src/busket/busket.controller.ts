@@ -1,10 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { ApiTags } from '@nestjs/swagger';
 import { BusketService } from './busket.service';
 import { CreateBusketDto } from './dto/create-busket.dto';
 import { UpdateBusketDto } from './dto/update-busket.dto';
 
 @ApiTags('Busket')
+@UseGuards(AuthGuard())
 @Controller('busket')
 export class BusketController {
   constructor(private readonly busketService: BusketService) {}
