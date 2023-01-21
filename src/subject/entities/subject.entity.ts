@@ -1,4 +1,5 @@
-import { AutoIncrement, Column, DataType, Model, PrimaryKey, Table } from "sequelize-typescript";
+import { AutoIncrement, Column, DataType, HasMany, Model, PrimaryKey, Table } from "sequelize-typescript";
+import { Course } from "src/course/entities/course.entity";
 
 @Table
 export class Subject extends Model{
@@ -10,4 +11,7 @@ export class Subject extends Model{
 
     @Column(DataType.STRING)
     name: string
+
+    @HasMany(() => Course,{})
+    courses: Course[]
 }

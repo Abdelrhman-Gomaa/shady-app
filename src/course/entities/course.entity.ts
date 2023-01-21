@@ -1,4 +1,5 @@
-import { AutoIncrement, Column, DataType, Model, PrimaryKey, Table } from "sequelize-typescript";
+import { AutoIncrement, BelongsTo, Column, DataType, ForeignKey, Model, PrimaryKey, Table } from "sequelize-typescript";
+import { Subject } from "src/subject/entities/subject.entity";
 
 @Table
 export class Course extends Model{
@@ -25,5 +26,11 @@ export class Course extends Model{
 
     @Column(DataType.INTEGER)
     price: number;
+
+    @ForeignKey(() => Subject)
+    subject_Id: number
+
+    @BelongsTo(() => Subject)
+    subject: Subject;
 
 }
