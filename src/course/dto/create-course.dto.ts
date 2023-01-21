@@ -1,4 +1,4 @@
-import { IsString } from "class-validator";
+import { IsNumber, IsString } from "class-validator";
 
 export class CreateCourseDto {
 
@@ -17,6 +17,11 @@ export class CreateCourseDto {
     @IsString()
     resources: string;
 
-    @IsString()
+    @IsNumber()
     price: number;
+
+    subject_Id?: number;
+
+    @IsString({each: true})
+    subject:string;
 }
