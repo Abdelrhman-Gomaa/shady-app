@@ -15,7 +15,7 @@ export class SubjectService {
   }
 
   async findAll() : Promise<Subject[]> {
-    let result = await this.subjectRepository.findAll();
+    let result = await this.subjectRepository.findAll({include: {all: true}});
     if(!result){
       throw new NotFoundException(`Not Found ID`);
     }
@@ -23,7 +23,7 @@ export class SubjectService {
   }
 
   async findOne(id: number) : Promise<Subject> {
-    let result = await this.subjectRepository.findByPk(id);
+    let result = await this.subjectRepository.findByPk(id,{include: {all: true}});
     if(!result){
       throw new NotFoundException(`Not Found ID #${id}`);
     }
