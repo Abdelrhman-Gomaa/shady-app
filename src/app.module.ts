@@ -6,6 +6,7 @@ import { BusketModule } from './busket/busket.module';
 import { UserModule } from './user/user.module';
 import { DatabaseModule } from './database/database.module';
 import { ConfigModule } from '@nestjs/config';
+import { SubjectModule } from './subject/subject.module';
 
 @Module({
   imports: [
@@ -15,7 +16,7 @@ import { ConfigModule } from '@nestjs/config';
     DatabaseModule, 
     UserModule, 
     CourseModule, 
-    BusketModule
+    BusketModule, SubjectModule
   ],
   controllers: [AppController],
   providers: [AppService],
