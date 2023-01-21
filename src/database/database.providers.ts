@@ -2,6 +2,7 @@ import { Sequelize } from "sequelize-typescript";
 import { User } from "../user/entities/user.entity";
 import { Busket } from "../busket/entities/busket.entity";
 import { Course } from "../course/entities/course.entity";
+import { Subject } from "src/subject/entities/subject.entity";
 
 export const databaseProviders = [
   {
@@ -18,7 +19,7 @@ export const databaseProviders = [
           timestamps: false
         }
       });
-      sequelize.addModels([User, Busket, Course])
+      sequelize.addModels([User, Busket, Course, Subject])
       //await sequlize.sync();
 
       // Check dataBase Connection
