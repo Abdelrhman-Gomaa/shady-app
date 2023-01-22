@@ -1,4 +1,5 @@
-import { AutoIncrement, BelongsTo, Column, DataType, ForeignKey, Model, PrimaryKey, Table } from "sequelize-typescript";
+import { AutoIncrement, BelongsTo, BelongsToMany, Column, DataType, ForeignKey, Model, PrimaryKey, Table } from "sequelize-typescript";
+import { Busket } from "src/busket/entities/busket.entity";
 import { Subject } from "src/subject/entities/subject.entity";
 
 @Table
@@ -32,5 +33,8 @@ export class Course extends Model{
 
     @BelongsTo(() => Subject)
     subject: Subject;
+
+    @BelongsToMany(() => Subject, 'BusketCourses', 'course_Id', 'busket_Id')
+    busket: Busket[];
 
 }

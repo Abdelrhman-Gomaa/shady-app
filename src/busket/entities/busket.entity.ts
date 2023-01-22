@@ -1,4 +1,5 @@
-import { AutoIncrement, Column, DataType, Model, PrimaryKey, Table } from "sequelize-typescript";
+import { AutoIncrement, BelongsToMany, Column, DataType, HasMany, Model, PrimaryKey, Table } from "sequelize-typescript";
+import { Course } from "src/course/entities/course.entity";
 
 @Table
 export class Busket extends Model {
@@ -11,10 +12,9 @@ export class Busket extends Model {
     // user or student id
     @Column(DataType.INTEGER)
     user_Id: number;
-
-    // Courses Relation by CourseID Many to Many
-    @Column(DataType.ARRAY(DataType.STRING))
-    item: string[];
+    
+    @BelongsToMany(() => Course, 'BusketCourses', 'busket_Id', 'course_Id')
+    courses: Course[]
 
     // إجمالى سعر الفاتورة
     @Column(DataType.INTEGER)
